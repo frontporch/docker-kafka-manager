@@ -1,2 +1,2 @@
 # docker-kafka-manager
-Kafka manager Docker container
+[Kafka Manager](https://github.com/yahoo/kafka-manager) in a Docker container
