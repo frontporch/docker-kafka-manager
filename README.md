@@ -8,6 +8,5 @@ docker run -p 9000:9000 --name kafka-manager --env ZK_HOSTS="my.zookeeper.host.c
 ```
 
 ## TODO
-This is the wrong way to create this container.  It results in a huge container.  A better way would be to use a java
-container and just download a [prebuilt kafka-manager release](https://github.com/yahoo/kafka-manager/releases) and extract
-it.  This would result in a _drastically_ smaller image.
+This isn't the best way to create this container.  It results in a huge container.  A better way would be to use a openjdk:8-jre container and just download a prebuilt kafka-manager release.
+Unfortunately Kafka Manager doesn't include pre-build binaries in it's releases.  This would result in a _drastically_ smaller image.

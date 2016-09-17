@@ -29,7 +29,25 @@ RUN apt-get update > /dev/null &&  \
     
     # Install
     unzip -d /opt /tmp/kafka-manager/target/universal/kafka-manager-${KM_VERSION}.zip && \
-    
+
+    # Remove scala
+    rm -rf ~/scala-$SCALA_VERSION && \
+
+    # Cleanup .bashrc
+    sed -i.bak '/export PATH=~\/scala-$SCALA_VERSION\/bin:$PATH/d' /root/.bashrc && \
+
+    # Remove Scala environmental variables
+    unset SCALA_VERSION && \
+
+    # Remove SBT
+    dpkg -P sbt && \
+
+    # Cleanup after SBT
+    rm -rf ~/.sbt ~/.ivy2 && \
+
+    # Remove SBT environmental variables
+    unset SBT_VERSION && \
+
     # Clean
     apt-get clean && rm -fr /tmp/* && echo "Build Complete"
 
